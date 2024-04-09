@@ -136,6 +136,10 @@ import scanpy as sc
 import squidpy as sq
 import anndata as ad
 import os
+
+# turn off warnings
+import warnings
+warnings.filterwarnings('ignore')
 ```
 
 ### Loading dataset as Anndata object
@@ -197,52 +201,8 @@ df = spatialclock.deploy.get_predictions(adata)
     Imputing values for 100 missing genes
     Found clock for Endothelial
     Imputing values for 100 missing genes
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Found clock for Ependymal
     Imputing values for 100 missing genes
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Found clock for Macrophage
     Imputing values for 100 missing genes
     Found clock for Microglia
@@ -250,148 +210,23 @@ df = spatialclock.deploy.get_predictions(adata)
     Found clock for NSC
     Imputing values for 100 missing genes
     Found clock for Neuroblast
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for Neuron-Excitatory
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for Neuron-Inhibitory
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for Neuron-MSN
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for OPC
     Imputing values for 100 missing genes
     Found clock for Oligodendrocyte
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for Pericyte
     Imputing values for 100 missing genes
     Found clock for VLMC
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-
-
     Imputing values for 100 missing genes
     Found clock for VSMC
     Imputing values for 100 missing genes
-
-
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator StandardScaler from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator LassoCV from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/sklearn/base.py:329: UserWarning: Trying to unpickle estimator Pipeline from version 1.2.2 when using version 1.0.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-    https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
-      warnings.warn(
 
 
 Let's try looking at the distribution of predicted ages between the young and old samples.
@@ -476,64 +311,6 @@ df = spatialclock.proximity.compute_proximity_effects(adata, cutoff, celltypes,
                                                       min_pairs=1) # for tutorial only
 ```
 
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3723: RuntimeWarning: Degrees of freedom <= 0 for slice
-      return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
-    /home/edsun/anaconda3/envs/merfish/lib/python3.8/site-packages/numpy/core/_methods.py:254: RuntimeWarning: invalid value encountered in double_scalars
-      ret = ret.dtype.type(ret / rcount)
-
-
 For visualization/plotting code, please refer to the Github repository for the associated manuscript.
 
 # Guidelines for spatial aging clocks
@@ -580,8 +357,3 @@ Finally, we always recommend including young and old timepoints (for control con
 
 The following are additionally needed in the Anndata object to build clocks:
 - `.obs.age` - float values indicating the age of the animal from which the cell was measured
-
-
-```python
-
-```

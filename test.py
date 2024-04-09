@@ -1,97 +1,58 @@
-# TEST FILE FOR BASIC TISSUE FUNCTIONALITIES
+# TEST FILE FOR SPATIAL AGING CLOCKS
 
 
 # import packages
 
-import tissue.main, tissue.downstream
+import spatialclock.deploy # for deploying spatial aging clocks
+import spatialclock.proximity # for running proximity effect analysis
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import scanpy as sc
+import squidpy as sq
 import anndata as ad
 import os
 
+# turn off warnings
 import warnings
-warnings.filterwarnings("ignore")
+warnings.filterwarnings('ignore')
 
-#################################################################################################################
-print ("Testing TISSUE data loading...")
-try:
-    adata, RNAseq_adata = tissue.main.load_paired_datasets("tests/data/Spatial_count.txt",
-                                                           "tests/data/Locations.txt",
-                                                           "tests/data/scRNA_count.txt")
-except:
-    raise Exception ("Failed data loading from tests/data/ with tissue.main.load_paired_datasets()")
 
-#################################################################################################################
-print ("Testing TISSUE preprocessing...")
-adata.var_names = [x.lower() for x in adata.var_names]
-RNAseq_adata.var_names = [x.lower() for x in RNAseq_adata.var_names]
-try:
-    tissue.main.preprocess_data(RNAseq_adata, standardize=False, normalize=True)
-except:
-    raise Exception ("Failed TISSUE preprocessing. Make sure all dependencies are installed.")
-gene_names = np.intersect1d(adata.var_names, RNAseq_adata.var_names)
-adata = adata[:, gene_names].copy()
-target_gene = "plp1"
-target_expn = adata[:, target_gene].X.copy()
-adata = adata[:, [gene for gene in gene_names if gene != target_gene]].copy()
 
-#################################################################################################################
-print("Testing TISSUE spatial gene expression prediction...")
+print("Checking toy data loading...")
 try:
-    tissue.main.predict_gene_expression (adata, RNAseq_adata, [target_gene],
-                                         method="spage", n_folds=3, n_pv=10)
+    adata = sc.read_h5ad("data/small_data.h5ad")
 except:
-    raise Exception("TISSUE prediction failed for SpaGE at tissue.main.predict_gene_expression()")
+    raise Exception("Toy data loading failed")
 
-#################################################################################################################
-print("Testing TISSUE calibration...")
+print("Checking age prediction...")
 try:
-    tissue.main.build_spatial_graph(adata, method="fixed_radius", n_neighbors=15)
+    df = spatialclock.deploy.get_predictions(adata)
 except:
-    raise Exception ("Failed TISSUE spatial graph building at tissue.main.build_spatial_graph()")
+    raise Exception("Age prediction failed")
+    
+print("Checking age acceleration...")
 try:
-    tissue.main.conformalize_spatial_uncertainty(adata, "spage_predicted_expression", calib_genes=adata.var_names,
-                                                 grouping_method="kmeans_gene_cell", k=4, k2=2)
+    spatialclock.deploy.get_age_acceleration (adata)
 except:
-    raise Exception ("Failed TISSUE cell-centric variability and calibration scores processing at tissue.main.conformalize_spatial_uncertainty()")
+    raise Exception("Age acceleration failed")
+    
+print("Checking cell proximity...")
 try:
-    tissue.main.conformalize_prediction_interval (adata, "spage_predicted_expression", calib_genes=adata.var_names,
-                                                  alpha_level=0.23, compute_wasserstein=True)
-except:
-    raise Exception ("Failed TISSUE prediction interval calibration at tissue.main.conformalize_prediction_interval()")
+    celltypes = pd.unique(adata.obs.celltype).sort_values()
 
-#################################################################################################################
-print ("Testing TISSUE multiple imputation t-test...")
-adata.obs['condition'] = ['A' if i < round(adata.shape[0]/2) else 'B' for i in range(adata.shape[0])]
-try:
-    tissue.downstream.multiple_imputation_testing(adata, "spage_predicted_expression",
-                                                  calib_genes=adata.var_names,
-                                                  condition='condition',
-                                                  group1 = "A", # use None to compute for all conditions, condition vs all
-                                                  group2 = "B", # use None to compute for group1 vs all
-                                                  n_imputations=2)
+    spatialclock.proximity.nearest_distance_to_celltype(adata,
+                             celltype_list=celltypes,
+                             sub_id="mouse_id")
 except:
-    raise Exception ("Failed TISSUE MI t-test at tissue.downstream.multiple_imputation_testing()")
-
-#################################################################################################################
-print("Testing TISSUE cell filtering")
-X_uncertainty = adata.obsm["spage_predicted_expression_hi"].values - adata.obsm["spage_predicted_expression_lo"].values
+    raise Exception("Cell proximity failed")
+    
+print("Checking proximity effect...")
 try:
-    keep_idxs = tissue.downstream.detect_uncertain_cells (X_uncertainty,
-                                                          proportion="otsu",
-                                                          stratification=adata.obs['condition'].values)
+    cutoff = 30 # this can also be a region-specific dictionary of cutoffs
+    celltypes = pd.unique(adata.obs.celltype).sort_values()
+    df = spatialclock.proximity.compute_proximity_effects(adata, cutoff, celltypes,
+                                                          min_pairs=1)
 except:
-    raise Exception ("Failed TISSUE cell filtering at tissue.downstream.detect_uncertain_cells()")
-try:
-    keep_idxs = tissue.downstream.filtered_PCA (adata, # anndata object
-                                                "spage", # prediction method
-                                                proportion="otsu",
-                                                stratification=adata.obs['condition'].values,
-                                                return_keep_idxs=True)
-except:
-    raise Exception ("Failed TISSUE-filtered PCA at tissue.downstream.filtered_PCA()")
-
-print("TISSUE tests passed!")
+    raise Exception("Proximity effect failed")
