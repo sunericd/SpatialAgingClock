@@ -109,11 +109,11 @@ def get_predictions(adata,
                 
                 print(f"Imputing values for {len(missing_genes)} missing genes")
 
-                if fill_missing == "mean":
+                if fill_missing == "mean": # basic imputation with mean
                     X[:,missing_idxs] = impdf[missing_genes].values.flatten()
                     #X[:,missing_idxs] = np.nanmean(tr_adata[:,missing_genes].X)
 
-                elif fill_missing == "spage":
+                elif fill_missing == "spage": # imputation with SpaGE -- removed to keep package lightweight
                     raise Exception ("spage imputation under development for package")
                     # pb_tr_adata = pseudobulk(tr_adata, ["mouse_id", "celltype"], n=20, B=100, method="random")
                     # #print(np.sum(np.isnan(pb_tr_adata.X)))
@@ -155,7 +155,8 @@ def get_predictions(adata,
 
         else:
             print (f"No clock found for {ct}")
-
+    
+    # save predicted ages and metadata
     celltype_col = np.concatenate(celltype_col)
     pred_age_col = np.concatenate(pred_age_col)
     cohort_col = np.concatenate(cohort_col)

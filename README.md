@@ -161,7 +161,7 @@ The following keys must also be in `.obs`. They aren't used by the clocks and ar
 - `cohort` - categorical indicating group that mouse/subject belongs to
 - `region` - categorical indicating region where cell is located
 
-Generally, Anndata objects are saved as `.h5ad` extension files and these can be loaded in with Scanpy or Anndata commands. You can also convert text/csv files containing the counts and metadata into Anndata objects (for example, see: )
+Generally, Anndata objects are saved as `.h5ad` extension files and these can be loaded in with Scanpy or Anndata commands. You can also convert text/csv files containing the counts and metadata into Anndata objects (for example, see: https://github.com/sunericd/TISSUE)
 
 In our case, we will load in a sample dataset (shipped with package):
 
@@ -184,7 +184,7 @@ adata
 
 ### Deploying spatial aging clocks on a dataset
 
-Next, we can generated predicted ages with the spatial aging clocks using the `get_predictions()` command. If there are missing genes in the dataset, you can specify the imputation method using the `fill_missing` parameter (options are "mean" and "spage").
+Next, we can generated predicted ages with the spatial aging clocks using the `get_predictions()` command. If there are missing genes in the dataset, you can specify the imputation method using the `fill_missing` parameter (options are `"mean"` and `"spage"` with the `"spage"` option currently being under development since it relies on the training dataset). If you would like to impute missing gene expression with an alternative method, this can be done by modifying the AnnData with these imputed values before running `get_predictions()`.
 
 Note that the predicted ages will be returned as the output dataframe but will also be saved in the Anndata object under `.obs.predicted_age` if `add_in_place` is True (default).
 
@@ -329,6 +329,7 @@ Spatial aging clock performance falls under two fronts: (1) the accuracy of the 
 - Female C57BL/6J mice
 - C57BL/6J hybrid male mice
 - Other single-cell transcriptomics technologies (STARmap, ISS, 10x Chromium, SmartSeq, etc)
+    - Note that some technologies have higher percentage of zero counts than MERFISH (e.g. STARmap and ISS) and we observe slightly degraded accuracy in the absolute age prediction on these modalities.
 - Gene panel including at least 60 genes shared with the spatial aging clocks
 - Other brain regions not listed above
 - Most experimental perturbations and disease states
@@ -353,7 +354,13 @@ Finally, we always recommend including young and old timepoints (for control con
 
 
 # UNDER DEVELOPMENT:
+- SpaGE-based imputation from training dataset
 - Frameworks for building spatial aging clocks from AnnData objects
 
-The following are additionally needed in the Anndata object to build clocks:
-- `.obs.age` - float values indicating the age of the animal from which the cell was measured
+<!-- The following are additionally needed in the Anndata object to build clocks:
+- `.obs.age` - float values indicating the age of the animal from which the cell was measured -->
+
+
+```python
+
+```

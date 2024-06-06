@@ -162,9 +162,9 @@ def get_paired_proximity_labels (adata, cutoff, celltype, cutoff_multiplier=1, r
                 cutoff_dist = cutoff[region] * cutoff_multiplier
             
             # get "near" cells
-            if ring_width is None:
+            if ring_width is None: # regular approach
                 near_bool = (sub_adata.obs.region==region)&(sub_adata.obs[f"{celltype}_nearest_distance"] < cutoff_dist)
-            else:
+            else: # area-restricted approach
                 near_bool = (sub_adata.obs.region==region)&(sub_adata.obs[f"{celltype}_nearest_distance"] < cutoff_dist)&(sub_adata.obs[f"{celltype}_nearest_distance"] > cutoff_dist-ring_width)
             num_near = np.sum(near_bool)
             
