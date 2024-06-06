@@ -17,3 +17,6 @@ dependencies = [
 
 [project.urls]
 Home = "https://github.com/sunericd/SpatialAgingClock"
+
+[tool.flit.module]
+name = "spatialclock"
