@@ -4,6 +4,9 @@ This Python software package provides tools for deploying our spatial aging cloc
 
 ![plot](./pipeline.png)
 
+Please refer to the associated manuscript:
+
+**Sun ED, Zhou OY, Hauptschein M, Rappoport N, Xu L, Navarro Negredo P, Ling L, Rando TA, Zou J, Brunet A. Spatial transcriptomic clocks reveal cell proximity effects in brain ageing. *Nature* 638, 160–171 (2025). https://doi.org/10.1038/s41586-024-08334-8**
 
 ## Installation and setup
 
